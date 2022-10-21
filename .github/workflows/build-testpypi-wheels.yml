@@ -66,21 +66,21 @@ jobs:
         name: wheels
         path: wheelhouse/
 
-  upload-test-pipy:
-    runs-on:  ubuntu-20.04
-    needs: [build-linux]
-    defaults:
-      run:
-        shell: bash
-    steps:
-      - uses: actions/download-artifact@v3
-        with:
-          name: wheels
-          path: wheelhouse/
-      - name: Publish package to pypitest
-        uses: pypa/gh-action-pypi-publish@release/v1
-        with:
-          user: __token__
-          password: ${{ secrets.pinpointpy }}
-          repository_url: https://test.pypi.org/legacy/
-          packages_dir: wheelhouse/
+  # upload-test-pipy:
+  #   runs-on:  ubuntu-20.04
+  #   needs: [build-linux]
+  #   defaults:
+  #     run:
+  #       shell: bash
+  #   steps:
+  #     - uses: actions/download-artifact@v3
+  #       with:
+  #         name: wheels
+  #         path: wheelhouse/
+  #     - name: Publish package to pypitest
+  #       uses: pypa/gh-action-pypi-publish@release/v1
+  #       with:
+  #         user: __token__
+  #         password: ${{ secrets.pinpointpy }}
+  #         repository_url: https://test.pypi.org/legacy/
+  #         packages_dir: wheelhouse/
