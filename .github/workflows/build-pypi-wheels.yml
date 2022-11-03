@@ -50,7 +50,6 @@ jobs:
       - name: Build and Install Wheels
         run: |
           set -x
-          # pushd . && cd pinpoint-c-agent && rm setup.py && ln -s setup_pypi_test.py setup.py && popd
           source multibuild/common_utils.sh
           source multibuild/travis_steps.sh
           echo "------- BEFORE INSTALL --------"
